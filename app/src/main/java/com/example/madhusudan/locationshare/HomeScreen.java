@@ -1,8 +1,12 @@
 package com.example.madhusudan.locationshare;
 
 import android.app.Activity;
+import android.app.Activity.*;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -47,6 +51,16 @@ public class HomeScreen extends Activity implements LocationListener{
         bigLocation=(TextView)findViewById(R.id.textView3);
         locationText.setText("You are near to  ");
 
+        SharedPreferences shared=getApplicationContext().getSharedPreferences("com.example.madhusudan.locationshare",getApplicationContext().MODE_PRIVATE);
+
+        if(shared.getString("Username","").equals("")){
+            Toast.makeText(getApplicationContext(),"sdsvs",Toast.LENGTH_LONG).show();
+            Intent intent= new Intent(this,NameInit.class);
+            startActivity(intent);
+        }
+
+        TextView bigLocation2=(TextView)findViewById(R.id.textView5);
+        bigLocation2.append(" "+shared.getString("Username",""));
 
         ConnectivityManager cm= (ConnectivityManager)getSystemService(getApplicationContext().CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo=cm.getActiveNetworkInfo();

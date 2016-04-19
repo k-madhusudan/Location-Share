@@ -3,4 +3,8 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_name_init">NameInit</string>
+    <string name="title_activity_main_activity_home">MainActivityHome</string>
+    <string name="title_activity_location_master">LocationMaster</string>
+    <string name="title_activity_gps">GPSActivity</string>
 </resources>
